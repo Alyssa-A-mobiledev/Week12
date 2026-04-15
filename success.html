@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Payment Successful - Leslie Auto Repair</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .success-section {
+      min-height: 60vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 4rem 1rem;
+    }
+
+    .success-card {
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 24px rgba(0, 0, 0, 0.1);
+      padding: 3rem 2.5rem;
+      max-width: 520px;
+      width: 100%;
+      text-align: center;
+    }
+
+    .success-icon {
+      width: 72px;
+      height: 72px;
+      background: #38a169;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1.5rem;
+    }
+
+    .success-icon svg {
+      width: 36px;
+      height: 36px;
+      stroke: #fff;
+      fill: none;
+      stroke-width: 3;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .success-card h1 {
+      color: #1a365d;
+      font-size: 1.75rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .success-card p {
+      color: #555;
+      line-height: 1.6;
+      margin-bottom: 1rem;
+    }
+
+    .success-actions {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 2rem;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="nav-container">
+      <a href="index.html" class="logo">Leslie <span>Auto Repair</span></a>
+      <button class="menu-toggle" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="appointment.html">Book Appointment</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="success-section">
+      <div class="success-card">
+        <div class="success-icon">
+          <svg viewBox="0 0 24 24">
+            <polyline points="20 6 9 17 4 12"></polyline>
+          </svg>
+        </div>
+        <h1>Payment Successful!</h1>
+        <p>Thank you for your deposit. We've received your $100 payment and your appointment request has been confirmed.</p>
+        <p>We'll reach out within one business day to finalize your appointment time. If you have any questions, call us at <strong>(954) 816-2450</strong>.</p>
+        <div class="success-actions">
+          <a href="index.html" class="btn btn-primary">Back to Home</a>
+          <a href="appointment.html" class="btn btn-secondary">Book Another</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-content">
+      <p><strong>Leslie Auto Repair</strong></p>
+      <p>8455 Oakland Park Blvd, Sunrise, FL 33351</p>
+      <p>Phone: (954) 816-2450</p>
+      <p>&copy; 2026 Leslie Auto Repair. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    document.querySelector('.menu-toggle').addEventListener('click', function () {
+      document.querySelector('nav ul').classList.toggle('show');
+    });
+  </script>
+
+</body>
+</html>

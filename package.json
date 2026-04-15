@@ -1,0 +1,9 @@
+{
+  "name": "leslie-auto-repair",
+  "version": "1.0.0",
+  "description": "Leslie Auto Repair website",
+  "dependencies": {
+    "stripe": "^16.0.0",
+    "@sendgrid/mail": "^8.0.0"
+  }
+}

@@ -161,6 +161,19 @@
               <p>Let us know when scheduling and we’ll help coordinate your rental.</p>
             </div>
 
+            <!-- Payment Card -->
+            <div class="sidebar-card" style="border-top: 4px solid #ed8936;">
+              <h3>Pay Your Deposit</h3>
+              <p>Secure your appointment with a <strong>$100 deposit</strong> via Stripe. Quick, safe, and easy.</p>
+              <button id="pay-now-btn" class="btn btn-primary btn-block" style="margin-top: 1rem;"
+                onclick="handlePayment()">
+                Pay Deposit
+              </button>
+              <p style="font-size: 0.8rem; color: #777; margin-top: 0.5rem; text-align: center;">
+                Powered by Stripe &bull; Test mode
+              </p>
+            </div>
+
             <!-- Contact Card -->
             <div class="sidebar-card contact-card">
               <h3>Contact Us Directly</h3>
@@ -340,6 +353,62 @@
       </div>
     </div>
   </section>
+  <script>
+    document.querySelector('.menu-toggle').addEventListener('click', function () {
+      document.querySelector('nav ul').classList.toggle('show');
+    });
+
+    async function handlePayment() {
+      const btn = document.getElementById('pay-now-btn');
+      btn.textContent = 'Processing...';
+      btn.disabled = true;
+
+      // Read values from the appointment form
+      const name = document.getElementById('name')?.value.trim() || 'Valued Customer';
+      const email = document.getElementById('email')?.value.trim() || '';
+      const service = document.getElementById('service')?.value || 'Auto Repair Service';
+
+      try {
+        const response = await fetch('/.netlify/functions/create-checkout-session', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ name, email, service }),
+        });
+
+        const data = await response.json();
+
+        if (data.url) {
+          window.location.href = data.url;
+        } else {
+          throw new Error(data.error || 'Something went wrong');
+        }
+      } catch (error) {
+        alert('Payment error: ' + error.message);
+        btn.textContent = 'Pay Deposit \u2014 $100';
+        btn.disabled = false;
+      }
+    }
+    document.querySelector('.appointment-form').addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
+      const service = document.getElementById('service').value;
+
+      try {
+        await fetch('/.netlify/functions/send-email', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ name, email, service }),
+        });
+
+        alert('Appointment request sent! Check your email.');
+      } catch (err) {
+        alert('Error sending request');
+      }
+    });
+  </script>
+
   <footer>
     <div class="footer-content">
       <p><strong>Leslie Auto Repair</strong></p>

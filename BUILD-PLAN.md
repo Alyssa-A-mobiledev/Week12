@@ -30,4 +30,4 @@ Test: toggle feels polished and icon updates correctly
 Step 7 — Final visual review
 - Scan each page for any hardcoded colors that bypass the CSS variables
 Fix any contrast or visibility issues found
-Each step is isolated, independently testable, and builds on the previous one. Ready to start with Step 1 whenever you are.
+
