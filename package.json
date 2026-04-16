@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "description": "Leslie Auto Repair website",
   "dependencies": {
-    "stripe": "^16.0.0",
-    "@sendgrid/mail": "^8.0.0"
+    "@sendgrid/mail": "^8.0.0",
+    "resend": "^6.12.0",
+    "stripe": "^16.0.0"
   }
 }
